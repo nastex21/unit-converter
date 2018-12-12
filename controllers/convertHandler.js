@@ -40,10 +40,32 @@ function ConvertHandler() {
   this.getReturnUnit = function (initUnit) {
     var result;
 
+    switch (initUnit) {
+      case "gal":
+        result = "L";
+        break;
+      case "L":
+        result = "gal";
+        break;
+      case "lbs":
+        result = "kg";
+        break;
+      case "kg":
+        result = "lbs";
+        break;
+      case "mi":
+        result = "km";
+        break;
+      case "km":
+        result = "mi";
+        break;
+    }
+
     return result;
   };
 
   this.spellOutUnit = function (unit) {
+    console.log("unit: " + unit)
     var result;
 
     return result;
@@ -80,8 +102,49 @@ switch (initUnit) {
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-    var result;
 
+    switch (initUnit) {
+      case "gal":
+        initUnit = "gallons";
+        break;
+      case "L":
+        initUnit = "liters";
+        break;
+      case "lbs":
+        initUnit = "pounds";
+        break;
+      case "kg":
+        initUnit = "kilograms";
+        break;
+      case "mi":
+        initUnit = "miles";
+        break;
+      case "km":
+        initUnit = "kilometers";
+        break;
+    }
+
+    switch (returnUnit) {
+      case "gal":
+        returnUnit = "gallons";
+        break;
+      case "L":
+        returnUnit = "liters";
+        break;
+      case "lbs":
+        returnUnit = "pounds";
+        break;
+      case "kg":
+        returnUnit = "kilograms";
+        break;
+      case "mi":
+        returnUnit = "miles";
+        break;
+      case "km":
+        returnUnit = "kilometers";
+        break;
+    }
+    var result =  initNum + " "  + initUnit + " converts to " + returnNum + " " + returnUnit;
     return result;
   };
 
