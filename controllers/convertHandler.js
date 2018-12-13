@@ -28,7 +28,7 @@ function ConvertHandler() {
     } else {
       result = input;
     }
-
+    console.log("getNum: " + result);
     return result;
   };
 
@@ -79,30 +79,29 @@ function ConvertHandler() {
 
 switch (initUnit) {
     case "gal":
-      result = initNum / galToL;
+      result = initNum * galToL;
       break;
     case "L":
-      result = galToL * initNum;
+      result = initNum / galToL;
       break;
     case "lbs":
-      result = initNum / lbsToKg;
+      result = initNum * lbsToKg;
       break;
     case "kg":
-      result = lbsToKg * initNum;
+      result = initNum / lbsToKg;
       break;
     case "mi":
-      result = initNum / miToKm;
-      break;
-    case "km":
       result = miToKm * initNum;
       break;
+    case "km":
+      result = initNum / miToKm;
+      break;
   }
-
+  console.log("getNum: " + result);
     return result;
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-
     switch (initUnit) {
       case "gal":
         initUnit = "gallons";
@@ -144,6 +143,7 @@ switch (initUnit) {
         returnUnit = "kilometers";
         break;
     }
+    returnNum = returnNum.toFixed(5);
     var result =  initNum + " "  + initUnit + " converts to " + returnNum + " " + returnUnit;
     return result;
   };
